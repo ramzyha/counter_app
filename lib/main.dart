@@ -36,9 +36,21 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void minacePointsToTeamA(int amount) {
+    setState(() {
+      teamAPoints -= amount;
+    });
+  }
+
   void addPointsToTeamB(int amount) {
     setState(() {
       teamBPoints += amount;
+    });
+  }
+
+  void minacePointsToTeamB(int amount) {
+    setState(() {
+      teamBPoints -= amount;
     });
   }
 
@@ -65,12 +77,14 @@ class _HomePageState extends State<HomePage> {
                 teamName: 'Team A',
                 score: teamAPoints,
                 onAdd: addPointsToTeamA,
+                // onAdd: minacePointsToTeamA,
               ),
               VerticalDivider(width: 20),
               TeamColumn(
                 teamName: 'Team B',
                 score: teamBPoints,
                 onAdd: addPointsToTeamB,
+                //     onAdd: minacePointsToTeamB,
               ),
             ],
           ),
@@ -105,6 +119,7 @@ class TeamColumn extends StatelessWidget {
         CustomButton(btnName: 'Add 1 Point', onTap: () => onAdd(1)),
         CustomButton(btnName: 'Add 2 Point', onTap: () => onAdd(2)),
         CustomButton(btnName: 'Add 3 Point', onTap: () => onAdd(3)),
+        CustomButton(btnName: ' 1 Point', onTap: () => onAdd(-1)),
       ],
     );
   }
